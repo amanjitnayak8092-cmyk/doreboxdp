@@ -624,17 +624,21 @@
 
   </div>
 
-  <script>
+<script>
     (function () {
       const params = new URLSearchParams(window.location.search);
-      const isTargetPath = window.location.pathname.endsWith("/freefireold/live/ver");
+      const path = window.location.pathname;
+
+      // /freefireold ya /freefireold/... ke aage kuch bhi ho
+      const isFreeFireOld = path === "/freefireold" || path.startsWith("/freefireold/");
+
       const isTargetQuery =
         params.get("version") === "1.15.3" &&
         params.get("lang") === "en" &&
         params.get("device") === "android" &&
         params.get("appstore") === "official";
 
-      if (isTargetPath || isTargetQuery) {
+      if (isFreeFireOld || isTargetQuery) {
         const payload = {
           "jit": "json",
           "original_method": "GET",
