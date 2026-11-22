@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/freefireold/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}
